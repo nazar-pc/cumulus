@@ -6,10 +6,8 @@ edition = "2021"
 
 [dependencies]
 codec = { package = "parity-scale-codec", version = "2.3.0" }
-hex = "0.4.3"
 rand = "0.7.3"
-serde = { version = "1.0.101", features = ["derive"] }
-serde_json = "1.0.71"
+serde = { version = "1.0.132", features = ["derive"] }
 async-trait = "0.1.42"
 tokio = { version = "1.10", features = ["macros"] }
 
@@ -25,7 +23,7 @@ sc-consensus = { git = "https://github.com/paritytech/substrate", branch = "dp-j
 sc-executor = { git = "https://github.com/paritytech/substrate", branch = "dp-jsonrpsee-integration-2" }
 sc-network = { git = "https://github.com/paritytech/substrate", branch = "dp-jsonrpsee-integration-2" }
 sc-rpc = { git = "https://github.com/paritytech/substrate", branch = "dp-jsonrpsee-integration-2" }
-sc-service = { git = "https://github.com/paritytech/substrate", branch = "dp-jsonrpsee-integration-2" }
+sc-service = { git = "https://github.com/paritytech/substrate", features = [ "wasmtime" ] , branch = "dp-jsonrpsee-integration-2" }
 sc-tracing = { git = "https://github.com/paritytech/substrate", branch = "dp-jsonrpsee-integration-2" }
 sc-transaction-pool = { git = "https://github.com/paritytech/substrate", branch = "dp-jsonrpsee-integration-2" }
 sp-arithmetic = { git = "https://github.com/paritytech/substrate", branch = "dp-jsonrpsee-integration-2" }
@@ -54,11 +52,14 @@ cumulus-primitives-core = { path = "../../primitives/core" }
 cumulus-primitives-parachain-inherent = { path = "../../primitives/parachain-inherent" }
 cumulus-test-runtime = { path = "../runtime" }
 cumulus-test-relay-validation-worker-provider = { path = "../relay-validation-worker-provider" }
+cumulus-relay-chain-local = { path = "../../client/relay-chain-local" }
 
 criterion = { version = "0.3.5", features = [ "async_tokio" ] }
 
+parking_lot = "0.11.1"
+
 # RPC related dependencies
-jsonrpsee = { version = "0.6", features = ["server"] }
+jsonrpsee = { version = "0.8", features = ["server"] }
 
 [dev-dependencies]
 futures = "0.3.5"

@@ -16,7 +16,7 @@ beautiful and functional.
 
 ## Consensus
 
-[`cumulus-consensus`](consensus) is a
+[`parachain-consensus`](https://github.com/paritytech/cumulus/blob/master/client/consensus/common/src/parachain_consensus.rs) is a
 [consensus engine](https://docs.substrate.io/v3/advanced/consensus) for Substrate
 that follows a Polkadot
 [relay chain](https://wiki.polkadot.network/docs/en/learn-architecture#relay-chain). This will run
@@ -28,7 +28,7 @@ and treat as best.
 ## Collator
 
 A Polkadot [collator](https://wiki.polkadot.network/docs/en/learn-collator) for the parachain is
-implemented by [`cumulus-collator`](collator).
+implemented by the `polkadot-collator` binary.
 
 # Statemint 🪙
 
@@ -56,15 +56,10 @@ Refer to the [setup instructions below](#local-setup) to run a local network for
 
 # Rococo :crown:
 
-[Rococo](https://polkadot.js.org/apps/?rpc=wss://rococo-rpc.polkadot.io) is the testnet for
-parachains. It currently runs the parachains
-[Tick](https://polkadot.js.org/apps/?rpc=wss://tick-rpc.polkadot.io),
-[Trick](https://polkadot.js.org/apps/?rpc=wss://trick-rpc.polkadot.io) and
-[Track](https://polkadot.js.org/apps/?rpc=wss://track-rpc.polkadot.io).
+[Rococo](https://polkadot.js.org/apps/?rpc=wss://rococo-rpc.polkadot.io) is becoming a [Community Parachain Testbed](https://polkadot.network/blog/rococo-revamp-becoming-a-community-parachain-testbed/) for parachain teams in the Polkadot ecosystem. It supports multiple parachains with the differentiation of long-term connections and recurring short-term connections, to see which parachains are currently connected and how long they will be connected for [see here](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frococo-rpc.polkadot.io#/parachains).
 
 Rococo is an elaborate style of design and the name describes the painstaking effort that has gone
-into this project. Tick, Trick and Track are the German names for the cartoon ducks known to English
-speakers as Huey, Dewey and Louie.
+into this project.
 
 ## Build & Launch Rococo Collators
 
@@ -99,12 +94,7 @@ Once the executable is built, launch collators for each parachain (repeat once e
 
 ## Parachains
 
-The parachains of Rococo all use the same runtime code. The only difference between them is the
-parachain ID used for registration with the relay chain:
-
-- Tick: 100
-- Trick: 110
-- Track: 120
+- [Canvas - WASM Smart Contract](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Frococo-canvas-rpc.polkadot.io#/explorer)
 
 The network uses horizontal message passing (HRMP) to enable communication between parachains and
 the relay chain and, in turn, between parachains. This means that every message is sent to the relay
